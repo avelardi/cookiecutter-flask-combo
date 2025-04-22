@@ -5,6 +5,7 @@ ARG INSTALL_NODE_VERSION=${INSTALL_NODE_VERSION:-NODE_VERSION_NOT_SET}
 FROM node:${INSTALL_NODE_VERSION}-bullseye-slim AS node
 FROM python:${INSTALL_PYTHON_VERSION}-slim-bullseye AS builder
 
+
 WORKDIR /app
 
 COPY --from=node /usr/local/bin/ /usr/local/bin/
@@ -73,3 +74,12 @@ RUN pip install --no-cache -r requirements/dev.txt
 EXPOSE 2992
 EXPOSE 5000
 CMD [ {% if cookiecutter.use_pipenv == 'True' %}"pipenv", "run", {% endif %}"npm", "start" ]
+
+# ================================ CELERY WORKER ========
+
+FROM python:${INSTALL_PYTHON_VERSION}-slim-bullseye as celery_worker
+WORKDIR /app
+COPY {{cookiecutter.app_name}} {{cookiecutter.app_name}}
+COPY requirements requirements
+COPY .env.example .env
+RUN pip install --no-cache-dir -r requirements/prod.txt

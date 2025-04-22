@@ -64,3 +64,6 @@ pep8-naming = "==0.13.3"
 [requires]
 python_version = "{{ cookiecutter.python_version | trim }}"
 {% endif -%}
+
+# Redis
+redis[hiredis]

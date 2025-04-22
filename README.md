@@ -1,14 +1,8 @@
-# cookiecutter-flask
+# cookiecutter-flask-combo
 
 A Flask template for [cookiecutter](https://github.com/audreyr/cookiecutter). (Supports Python ≥ 3.8)
 
-![Build Status](https://github.com/cookiecutter-flask/cookiecutter-flask/workflows/Build%20Status/badge.svg)
-![CodeQL](https://github.com/cookiecutter-flask/cookiecutter-flask/workflows/CodeQL/badge.svg)
-[![CalVer](https://img.shields.io/badge/calver-YY.MINOR.MICRO-22bfda.svg)](http://calver.org)
-
-See [this repo](https://github.com/jamescurtin/demo-cookiecutter-flask) for an example project generated from the most recent version of the template.
-
-## Use it now
+## Note: this is a work in progress and not functioning. Use upstream until this banner is removed. Docs are not accurate yet.
 
 ### Docker **(This is the preferred method for creating a new project)**
 

@@ -8,7 +8,24 @@ x-default-volumes: &default_volumes
     - node-modules:/app/node_modules
     - ./dev.db:/tmp/dev.db
 
+x-default-environment: &default_environment
+  REDIS_HOST: redis
+  REDIS_PORT: 6379
+  REDIS_PASSWORD: "{{cookiecutter.redis_password}}"
+
+
 services:
+  redis:
+    image: redis:latest
+    restart: always
+    ports:
+      - '6379:6379'
+    command: redis-server --save 20 1 --loglevel warning
+    volumes:
+      - redis:/data
+      - $PWD/redis-data:/var/lib/redis
+      - $PWD/redis.conf:/usr/local/etc/redis/redis.conf
+
   flask-dev:
     build:
       context: .
@@ -16,9 +33,13 @@ services:
       args:
         <<: *build_args
     image: "{{cookiecutter.app_name}}-development"
+    depends_on:
+      - redis
     ports:
-      - "8080:5000"
+      - "5000:5000"
       - "2992:2992"
+    environment:
+      <<: *default_environment
     <<: *default_volumes
 
   flask-prod:
@@ -28,13 +49,16 @@ services:
       args:
         <<: *build_args
     image: "{{cookiecutter.app_name}}-production"
+    depends_on:
+      - redis
     ports:
-      - "8080:5000"
+      - "5000:5000"
     environment:
       FLASK_ENV: production
       FLASK_DEBUG: 0
       LOG_LEVEL: info
       GUNICORN_WORKERS: 4
+      <<: *default_environment
     <<: *default_volumes
 
   manage:
@@ -51,6 +75,17 @@ services:
     stdin_open: true
     tty: true
     <<: *default_volumes
+  flower:
+    image: mher/flower:0.9.7
+    container_name: flower
+    restart: always
+    command: ['flower', '--broker=redis://redis:6379', '--port=5555']
+    ports:
+      - '5555:5555'
+    depends_on:
+      - redis
 
 volumes:
   node-modules:
+  redis:
+    driver: local

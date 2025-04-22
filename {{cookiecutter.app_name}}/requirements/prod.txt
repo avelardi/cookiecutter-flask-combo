@@ -38,3 +38,9 @@ Flask-DebugToolbar==0.16.0
 
 # Environment variable parsing
 environs==14.1.1
+
+
+# celery and redis
+celery[redis]
+kombu
+redis[hiredis]

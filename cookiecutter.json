@@ -1,12 +1,13 @@
 {
-  "full_name": "",
-  "email": "",
-  "github_username": "",
-  "project_name": "",
-  "app_name": "",
-  "project_short_description": "",
-  "use_pipenv": "",
-  "python_version": "",
-  "node_version": "",
-  "use_heroku": ""
+  "full_name": "Tony Velardi",
+  "email": "tony@velardi.io",
+  "github_username": "avelardi",
+  "project_name": "cookiedemo",
+  "app_name": "cookiedemo",
+  "project_short_description": "Cookiecutter demo",
+  "use_pipenv": false,
+  "python_version": "3.13",
+  "node_version": "22",
+  "use_heroku": false,
+  "redis_password": "Changemechangemechangeme"
 }

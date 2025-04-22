@@ -42,17 +42,17 @@ interactions: List[columbo.Interaction] = [
     columbo.BasicQuestion(
         "full_name",
         "What is your name?",
-        default="First Last",
+        default="Tony Velardi",
     ),
     columbo.BasicQuestion(
         "email",
         lambda answers: f"What is {answers['full_name']}'s email address?",
-        default="example@gmail.com",
+        default="tony@velardi.io",
     ),
     columbo.BasicQuestion(
         "github_username",
         lambda answers: f"What is {answers['full_name']}'s github username?",
-        default="yourGithubUsername",
+        default="avelardi",
     ),
     columbo.BasicQuestion(
         "project_name",
@@ -68,7 +68,7 @@ interactions: List[columbo.Interaction] = [
     columbo.BasicQuestion(
         "project_short_description",
         "Provide a short description for the project.",
-        default="A flasky app.",
+        default="A flask app.",
     ),
     columbo.Confirm(
         "use_pipenv",
@@ -91,6 +91,11 @@ interactions: List[columbo.Interaction] = [
         "use_heroku",
         "Will this project be deployed using heroku?",
         default=False,
+    ),
+    columbo.BasicQuestion(
+        "redis_password",
+        "Enter Redis password:",
+        default="Changemechangemechangeme",
     ),
 ]
 

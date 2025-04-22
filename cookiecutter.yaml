@@ -1,0 +1,12 @@
+default_context:
+  full_name: Tony Velardi
+  email: tony@velardi.io
+  github_username: avelardi
+  project_name: cookiedemo
+  app_name: cookiedemo
+  project_short_description: Cookiecutter demo
+  use_pipenv: False
+  python_version: "3.13"
+  node_version: "22"
+  use_heroku: False
+  redis_password: Changemechangemechangeme
