@@ -42,8 +42,11 @@ output/*/index.html
 docs/_build
 README.html
 
+
+
 # Cookiecutter
 output/
 
 my_flask_app/
 bower_components
+.venv
