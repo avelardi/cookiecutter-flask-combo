@@ -42,7 +42,8 @@
     "datatables.net-searchbuilder-bs5": "^1.8.2",
     "datatables.net-select-bs5": "^3.0.0",
     "jszip": "^3.10.1",
-    "pdfmake": "^0.2.18"
+    "pdfmake": "^0.2.18",
+    "expose-loader": "^5.0.1"
   },
   "devDependencies": {
     "@babel/core": "7.26.10",

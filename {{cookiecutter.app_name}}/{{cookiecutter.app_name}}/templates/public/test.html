@@ -484,5 +484,15 @@
         </tfoot>
     </table>
 </div>
+
+<script>
+$('#example').DataTable({
+    layout: {
+        topStart: {
+            buttons: ['copy', 'csv', 'excel', 'pdf']
+        }
+    }
+});
+</script>
 {% endblock %}
 {% endraw %}
