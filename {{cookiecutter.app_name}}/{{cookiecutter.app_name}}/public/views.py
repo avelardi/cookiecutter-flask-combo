@@ -17,7 +17,7 @@ from {{cookiecutter.app_name}}.user.forms import RegisterForm
 from {{cookiecutter.app_name}}.user.models import User
 from {{cookiecutter.app_name}}.utils import flash_errors
 
-blueprint = Blueprint("public", __name__, static_folder="../static")
+blueprint = Blueprint("public", __name__, static_folder="../static",template_folder="../templates")
 
 
 @login_manager.user_loader
@@ -75,3 +75,8 @@ def about():
     """About page."""
     form = LoginForm(request.form)
     return render_template("public/about.html", form=form)
+
+@blueprint.route("/test")
+def test_page():
+    """test page."""
+    return render_template("public/test.html")
