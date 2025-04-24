@@ -15,6 +15,7 @@ from {{cookiecutter.app_name}}.extensions import (
     flask_static_digest,
     login_manager,
     migrate,
+    celery_init_app,
 )
 
 
@@ -44,6 +45,7 @@ def register_extensions(app):
     debug_toolbar.init_app(app)
     migrate.init_app(app, db)
     flask_static_digest.init_app(app)
+    celery_init_app(app)
     return None
 
 
@@ -89,3 +91,4 @@ def configure_logger(app):
     handler = logging.StreamHandler(sys.stdout)
     if not app.logger.handlers:
         app.logger.addHandler(handler)
+

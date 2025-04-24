@@ -23,3 +23,8 @@ CACHE_TYPE = (
     "flask_caching.backends.SimpleCache"  # Can be "MemcachedCache", "RedisCache", etc.
 )
 SQLALCHEMY_TRACK_MODIFICATIONS = False
+CELERY=dict(
+        broker_url=env.str("CELERY_BROKER_URL"),
+        result_backend=env.str("CELERY_BROKER_URL"),
+        task_ignore_result=False,
+)

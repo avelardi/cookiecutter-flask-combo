@@ -24,7 +24,7 @@ services:
     volumes:
       - redis:/data
       - $PWD/redis-data:/var/lib/redis
-      - $PWD/redis.conf:/usr/local/etc/redis/redis.conf
+      #- $PWD/redis.conf:/usr/local/etc/redis/redis.conf
 
   flask-dev:
     build:

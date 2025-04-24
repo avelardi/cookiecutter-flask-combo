@@ -60,3 +60,4 @@ env/
 
 #tmp
 tmp/
+/{{cookiecutter.app_name}}/tmp

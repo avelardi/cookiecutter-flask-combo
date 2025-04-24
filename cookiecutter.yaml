@@ -4,7 +4,7 @@ default_context:
   github_username: avelardi
   project_name: cookiedemo
   app_name: cookiedemo
-  project_short_description: Cookiecutter demo
+  project_short_description: Cookiecutter YAML demo
   use_pipenv: False
   python_version: "3.13"
   node_version: "22"

@@ -67,3 +67,6 @@ python_version = "{{ cookiecutter.python_version | trim }}"
 
 # Redis
 redis[hiredis]
+
+# Celery
+celery

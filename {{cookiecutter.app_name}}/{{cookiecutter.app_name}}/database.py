@@ -4,6 +4,7 @@ from typing import Optional, Type, TypeVar
 
 from .compat import basestring
 from .extensions import db
+import datetime
 
 T = TypeVar("T", bound="PkModel")
 
@@ -52,9 +53,12 @@ class Model(CRUDMixin, db.Model):
 
 class PkModel(Model):
     """Base model class that includes CRUD convenience methods, plus adds a 'primary key' column named ``id``."""
-
+    @db.orm.declared_attr
+    def __tablename__(cls):
+        return cls.__name__.lower()
     __abstract__ = True
     id = Column(db.Integer, primary_key=True)
+    created = Column(db.DateTime, default=datetime.datetime.now)
 
     @classmethod
     def get_by_id(cls: Type[T], record_id) -> Optional[T]:

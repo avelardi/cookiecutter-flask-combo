@@ -75,11 +75,5 @@ EXPOSE 2992
 EXPOSE 5000
 CMD [ {% if cookiecutter.use_pipenv == 'True' %}"pipenv", "run", {% endif %}"npm", "start" ]
 
-# ================================ CELERY WORKER ========
 
-FROM python:${INSTALL_PYTHON_VERSION}-slim-bullseye as celery_worker
-WORKDIR /app
-COPY {{cookiecutter.app_name}} {{cookiecutter.app_name}}
-COPY requirements requirements
-COPY .env.example .env
-RUN pip install --no-cache-dir -r requirements/prod.txt
+
