@@ -9,7 +9,8 @@
   <!--<![endif]-->
   <head>
     <meta charset="utf-8" />
-
+    <script src="{{ static_url_for('static', filename='build/main_js.bundle.js') }}"></script>
+    {% block js %}{% endblock %}
     <link rel="shortcut icon" href="{{static_url_for('static', filename='build/favicon.ico') }}">
     <title>
       {% block page_title %} {% endraw %}
@@ -62,8 +63,7 @@
     {% include "footer.html" %}
 
     <!-- JavaScript at the bottom for fast page loading -->
-    <script src="{{ static_url_for('static', filename='build/main_js.bundle.js') }}"></script>
-    {% block js %}{% endblock %}
+
     <!-- end scripts -->
     {% endblock %}
   </body>

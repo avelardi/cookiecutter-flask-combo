@@ -11,6 +11,8 @@ require("bootstrap");
 // datatables addition
 require("jszip");
 require("pdfmake");
+var $ = require('jquery');
+require("datatables.net");
 require("datatables.net-bs5");
 require("datatables.net-buttons-bs5");
 require("datatables.net-colreorder-bs5");
