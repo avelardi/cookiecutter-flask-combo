@@ -35,6 +35,7 @@ services:
     image: "{{cookiecutter.app_name}}-development"
     depends_on:
       - redis
+      - flower
     ports:
       - "5000:5000"
       - "2992:2992"
